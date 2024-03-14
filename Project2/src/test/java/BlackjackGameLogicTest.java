@@ -1,9 +1,13 @@
+/**------------------------------------------
+ Project 2: BlackJack
+ Course: CS 342, Spring 2024
+ System: IntelliJ and Windows 11 and macOS
+ Student Author: Dana Fakhreddine and Viviana Lopez
+ ---------------------------------------------**/
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BlackjackGameLogicTest {
@@ -22,6 +26,7 @@ public class BlackjackGameLogicTest {
 
         assertEquals(19, game.handTotal(playerHand));
     }
+
     //simple check to make sure cards are adding up correctly
     @Test
     void SimpleAceHandTotalTest(){
@@ -42,6 +47,7 @@ public class BlackjackGameLogicTest {
         assertEquals(20, game.handTotal(playerHand));
     }
 
+    //checking a more complex test for adding more cards
     @Test
     void ComplexHandTotalTest(){
         BlackjackGame game = new BlackjackGame();
@@ -76,6 +82,7 @@ public class BlackjackGameLogicTest {
         assertEquals(31, game.handTotal(playerHand));
     }
 
+    //checks a complex case if the hand total is correct with many aces
     @Test
     void ComplexAceHandTotalTest(){
         BlackjackGame game = new BlackjackGame();
@@ -140,6 +147,7 @@ public class BlackjackGameLogicTest {
         assertEquals(26, game.handTotal(playerHand));
     }
 
+    //checks if jack, queen, and king are all worth 10
     @Test
     void simpleJackQueenKingCount(){
         BlackjackGame game = new BlackjackGame();
@@ -279,7 +287,7 @@ public class BlackjackGameLogicTest {
         assertTrue(game.playerOver21);
     }
 
-
+    //checking if whilePlaying works with aces
     @Test
     void AcesWhilePlayingTest(){
         BlackjackGame game = new BlackjackGame();
@@ -317,7 +325,6 @@ public class BlackjackGameLogicTest {
         assertFalse(game.whilePlaying(playerHand));
         assertFalse(game.playerOver21);
 
-
         Card card6 = new Card("Diamond", 4);
         playerHand.add(card6);
         assertEquals(20, game.handTotal(playerHand));
@@ -350,7 +357,6 @@ public class BlackjackGameLogicTest {
         assertEquals(12, game.handTotal(playerHand));
         assertEquals(9, game.handTotal(dealerHand));
         assertEquals ("", game.gotBlackJack(playerHand, dealerHand));
-
 
     }
 
@@ -665,7 +671,6 @@ public class BlackjackGameLogicTest {
         Card card3 = new Card("Diamond", 2);
         dealerHand.add(card3);
 
-
         assertTrue(game.evaluateBankerDraw(dealerHand));
 
         Card card4 = new Card("Club", 9);
@@ -678,7 +683,6 @@ public class BlackjackGameLogicTest {
         dealerHand.add(card5);
         assertEquals(18, game.handTotal(dealerHand));
         assertFalse(game.evaluateBankerDraw(dealerHand));
-
 
     }
 

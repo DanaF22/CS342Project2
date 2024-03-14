@@ -1,8 +1,13 @@
+/**------------------------------------------
+ Project 2: BlackJack
+ Course: CS 342, Spring 2024
+ System: IntelliJ and Windows 11 and macOS
+ Student Author: Dana Fakhreddine and Viviana Lopez
+ ---------------------------------------------**/
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BlackjackDealerTest {
@@ -176,6 +181,7 @@ public class BlackjackDealerTest {
         assertEquals(48, game.deckSize());
     }
 
+    //this checks if the decks shuffle correctly
     @Test
     void checkShuffleDeck(){
         BlackjackGame game = new BlackjackGame();

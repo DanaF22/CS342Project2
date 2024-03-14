@@ -1,8 +1,13 @@
+/**------------------------------------------
+ Project 2: BlackJack
+ Course: CS 342, Spring 2024
+ System: IntelliJ and Windows 11 and macOS
+ Student Author: Dana Fakhreddine and Viviana Lopez
+ ---------------------------------------------**/
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BlackjackGameTest {
@@ -19,7 +24,7 @@ public class BlackjackGameTest {
         playerHand.add(card1);
         playerHand.add(card2);
 
-        assertEquals(21, game.handTotal(playerHand));
+        assertEquals(21, game.gameLogic.handTotal(playerHand));
 
         ArrayList <Card> dealerHand = new ArrayList<>();
 
@@ -29,17 +34,15 @@ public class BlackjackGameTest {
         dealerHand.add(card3);
         dealerHand.add(card4);
 
-        assertEquals(17, game.handTotal(dealerHand));
+        assertEquals(17, game.gameLogic.handTotal(dealerHand));
 
-        assertEquals("player", game.gotBlackJack(playerHand, dealerHand));
-        assertTrue(game.goToBlackJack);
-        assertTrue(game.playerWon);
+        assertEquals("player", game.gameLogic.gotBlackJack(playerHand, dealerHand));
+        assertTrue(game.gameLogic.goToBlackJack);
+        assertTrue(game.gameLogic.playerWon);
 
         game.totalWinnings = 100;
 
         game.currentBet = 50;
-
-        double expectedWinnings = 225;
 
         assertEquals (225, game.evaluateWinnings());
     }
@@ -56,7 +59,7 @@ public class BlackjackGameTest {
         playerHand.add(card1);
         playerHand.add(card2);
 
-        assertEquals(18, game.handTotal(playerHand));
+        assertEquals(18, game.gameLogic.handTotal(playerHand));
 
         ArrayList <Card> dealerHand = new ArrayList<>();
 
@@ -66,16 +69,14 @@ public class BlackjackGameTest {
         dealerHand.add(card3);
         dealerHand.add(card4);
 
-        assertEquals(17, game.handTotal(dealerHand));
+        assertEquals(17, game.gameLogic.handTotal(dealerHand));
 
-        assertEquals("player", game.whoWon(playerHand, dealerHand));
-        assertTrue(game.playerWon);
+        assertEquals("player", game.gameLogic.whoWon(playerHand, dealerHand));
+        assertTrue(game.gameLogic.playerWon);
 
         game.totalWinnings = 100;
 
         game.currentBet = 50;
-
-        double expectedWinnings = 200;
 
         assertEquals (200, game.evaluateWinnings());
     }
@@ -92,7 +93,7 @@ public class BlackjackGameTest {
         playerHand.add(card1);
         playerHand.add(card2);
 
-        assertEquals(18, game.handTotal(playerHand));
+        assertEquals(18, game.gameLogic.handTotal(playerHand));
 
         ArrayList <Card> dealerHand = new ArrayList<>();
 
@@ -102,16 +103,14 @@ public class BlackjackGameTest {
         dealerHand.add(card3);
         dealerHand.add(card4);
 
-        assertEquals(21, game.handTotal(dealerHand));
+        assertEquals(21, game.gameLogic.handTotal(dealerHand));
 
-        assertEquals("dealer", game.whoWon(playerHand, dealerHand));
-        assertFalse(game.playerWon);
+        assertEquals("dealer", game.gameLogic.whoWon(playerHand, dealerHand));
+        assertFalse(game.gameLogic.playerWon);
 
         game.totalWinnings = 100;
 
         game.currentBet = 50;
-
-        double expectedWinnings = 50;
 
         assertEquals (50, game.evaluateWinnings());
     }
@@ -128,7 +127,7 @@ public class BlackjackGameTest {
         playerHand.add(card1);
         playerHand.add(card2);
 
-        assertEquals(18, game.handTotal(playerHand));
+        assertEquals(18, game.gameLogic.handTotal(playerHand));
 
         ArrayList <Card> dealerHand = new ArrayList<>();
 
@@ -138,16 +137,14 @@ public class BlackjackGameTest {
         dealerHand.add(card3);
         dealerHand.add(card4);
 
-        assertEquals(18, game.handTotal(dealerHand));
+        assertEquals(18, game.gameLogic.handTotal(dealerHand));
 
-        assertEquals("push", game.whoWon(playerHand, dealerHand));
-        assertFalse(game.playerWon);
+        assertEquals("push", game.gameLogic.whoWon(playerHand, dealerHand));
+        assertFalse(game.gameLogic.playerWon);
 
         game.totalWinnings = 100;
 
         game.currentBet = 50;
-
-        double expectedWinnings = 100;
 
         assertEquals (100, game.evaluateWinnings());
     }
